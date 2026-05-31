@@ -58,10 +58,9 @@ export function Contact() {
               <div className="contact-info-bar-header flex flex-col items-center px-6 pb-6 pt-8 text-center sm:pt-10">
                 <div className="contact-info-avatar relative h-24 w-24 overflow-hidden rounded-full bg-white ring-4 ring-white/80 sm:h-28 sm:w-28">
                   <Image
-                    src="/persona.webp"
+                    src="/persona.png"
                     alt="Juan Flores"
                     fill
-                    loading="lazy"
                     className="object-contain p-1"
                     sizes="(max-width: 640px) 96px, 112px"
                   />
