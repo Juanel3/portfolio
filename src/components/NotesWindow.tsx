@@ -1,30 +1,6 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 export function NotesWindow() {
-  const [enter, setEnter] = useState(false);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (prefersReducedMotion) {
-      setEnter(true);
-      return;
-    }
-
-    const frame = requestAnimationFrame(() => setEnter(true));
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
   return (
-    <div
-      className={`hero-window w-full ${
-        enter ? "hero-window--enter" : "hero-window--pending"
-      }`}
-    >
+    <div className="hero-window hero-window--enter w-full">
       <div className="hero-glass relative overflow-hidden rounded-[28px] border border-white/90 font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] shadow-[0_24px_64px_rgba(0,0,0,0.08),0_8px_32px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1),inset_0_-1px_0_rgba(255,255,255,0.4)]">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/75 via-white/55 to-white/65" />
 

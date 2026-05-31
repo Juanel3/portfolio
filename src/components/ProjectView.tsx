@@ -30,7 +30,7 @@ export function ProjectView({ project }: { project: Project }) {
       <div className="relative mx-auto max-w-5xl">
         <Link
           href="/#proyectos"
-          className="project-back-link mb-6 inline-flex items-center gap-2 text-sm font-medium text-zinc-500 transition-colors hover:text-[#007aff]"
+          className="project-back-link mb-6 inline-flex items-center gap-2 text-sm font-medium text-[#007aff] transition-colors hover:text-[#0066d6]"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />

@@ -9,46 +9,25 @@ const linkedin = "https://www.linkedin.com/in/juan-flores-91b77a3b6";
 export function Contact() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsSubmitting(true);
-    setStatus("idle");
-    setStatusMessage("");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: name.trim(),
-          message: message.trim(),
-        }),
-      });
+    const trimmedName = name.trim();
+    const trimmedMessage = message.trim();
+    const subject = encodeURIComponent(
+      `Contacto desde portafolio — ${trimmedName}`,
+    );
+    const body = encodeURIComponent(
+      [`Nombre: ${trimmedName}`, "", trimmedMessage].join("\n"),
+    );
 
-      const data = (await response.json()) as { error?: string };
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
 
-      if (!response.ok) {
-        throw new Error(data.error ?? "No se pudo enviar el mensaje.");
-      }
-
-      setStatus("success");
-      setStatusMessage("Mensaje enviado. Te responderé pronto.");
-      setName("");
-      setMessage("");
-    } catch (error) {
-      setStatus("error");
-      setStatusMessage(
-        error instanceof Error
-          ? error.message
-          : "No se pudo enviar el mensaje.",
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
+    setStatusMessage(
+      "Se abrió tu app de correo con el mensaje listo. Pulsa enviar para completarlo.",
+    );
   };
 
   return (
@@ -79,9 +58,10 @@ export function Contact() {
               <div className="contact-info-bar-header flex flex-col items-center px-6 pb-6 pt-8 text-center sm:pt-10">
                 <div className="contact-info-avatar relative h-24 w-24 overflow-hidden rounded-full bg-white ring-4 ring-white/80 sm:h-28 sm:w-28">
                   <Image
-                    src="/persona.png"
+                    src="/persona.webp"
                     alt="Juan Flores"
                     fill
+                    loading="lazy"
                     className="object-contain p-1"
                     sizes="(max-width: 640px) 96px, 112px"
                   />
@@ -168,11 +148,9 @@ export function Contact() {
               </label>
 
               <div className="mt-6">
-                {status !== "idle" && (
+                {statusMessage && (
                   <p
-                    className={`mb-3 text-center text-sm ${
-                      status === "success" ? "text-emerald-600" : "text-red-600"
-                    }`}
+                    className="mb-3 text-center text-sm text-emerald-600"
                     role="status"
                   >
                     {statusMessage}
@@ -180,10 +158,9 @@ export function Contact() {
                 )}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="mail-email-btn flex w-full items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="mail-email-btn flex w-full items-center justify-center gap-2"
                 >
-                  {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                  Enviar mensaje
                   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
