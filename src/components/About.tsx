@@ -56,12 +56,32 @@ function InfoBlock({
   );
 }
 
+function FloatingInfoBlock({
+  cardClass,
+  title,
+  icon,
+  children,
+}: {
+  cardClass: string;
+  title: string;
+  icon: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className={`about-floating-card ${cardClass}`}>
+      <InfoBlock title={title} icon={icon}>
+        {children}
+      </InfoBlock>
+    </div>
+  );
+}
+
 function AboutInfoCards() {
   return (
     <div className="about-floating-cards">
-      <InfoBlock
+      <FloatingInfoBlock
         title="Software"
-        className="about-floating-card about-floating-card--1"
+        cardClass="about-floating-card--1"
         icon={
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <rect x="3" y="5" width="18" height="12" rx="2" />
@@ -87,11 +107,11 @@ function AboutInfoCards() {
             </li>
           ))}
         </ul>
-      </InfoBlock>
+      </FloatingInfoBlock>
 
-      <InfoBlock
+      <FloatingInfoBlock
         title="Educación"
-        className="about-floating-card about-floating-card--2"
+        cardClass="about-floating-card--2"
         icon={
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <path d="M12 3L2 8l10 5 10-5-10-5z" strokeLinejoin="round" />
@@ -108,11 +128,11 @@ function AboutInfoCards() {
             </li>
           ))}
         </ul>
-      </InfoBlock>
+      </FloatingInfoBlock>
 
-      <InfoBlock
+      <FloatingInfoBlock
         title="Habilidades"
-        className="about-floating-card about-floating-card--3"
+        cardClass="about-floating-card--3"
         icon={
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" strokeLinejoin="round" />
@@ -129,11 +149,11 @@ function AboutInfoCards() {
             </span>
           ))}
         </div>
-      </InfoBlock>
+      </FloatingInfoBlock>
 
-      <InfoBlock
+      <FloatingInfoBlock
         title="Certificados"
-        className="about-floating-card about-floating-card--4"
+        cardClass="about-floating-card--4"
         icon={
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <circle cx="12" cy="9" r="5" />
@@ -151,7 +171,7 @@ function AboutInfoCards() {
             </span>
           ))}
         </div>
-      </InfoBlock>
+      </FloatingInfoBlock>
     </div>
   );
 }

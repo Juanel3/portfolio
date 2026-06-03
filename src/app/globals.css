@@ -42,7 +42,6 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-.about-section,
 .projects-section,
 .contact-section {
   content-visibility: auto;
@@ -171,11 +170,12 @@ body {
 @keyframes about-card-float {
   0%,
   100% {
-    transform: rotate(var(--card-tilt, 0deg)) translateY(var(--card-y, 0px));
+    transform: rotate(var(--card-tilt, 0deg))
+      translate3d(0, var(--card-y, 0px), 0);
   }
   50% {
     transform: rotate(var(--card-tilt, 0deg))
-      translateY(calc(var(--card-y, 0px) - 8px));
+      translate3d(0, calc(var(--card-y, 0px) - 8px), 0);
   }
 }
 
@@ -195,7 +195,8 @@ body {
   flex: 0 0 auto;
   width: min(220px, 42vw);
   animation: about-card-float 5s ease-in-out infinite;
-  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .about-section .about-floating-card--1 {
@@ -229,7 +230,7 @@ body {
 .about-section .about-floating-card:hover {
   animation-play-state: paused;
   transform: rotate(var(--card-tilt, 0deg))
-    translateY(calc(var(--card-y, 0px) - 6px));
+    translate3d(0, calc(var(--card-y, 0px) - 6px), 0);
   z-index: 5;
 }
 
@@ -249,7 +250,33 @@ body {
   animation: about-card-float 5s ease-in-out infinite;
   --card-tilt: -1deg;
   --card-y: 0px;
-  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.about-section .hero-blob {
+  animation: none;
+}
+
+.about-section .about-floating-card .glass-inner.rounded-2xl {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.9) 45%,
+    rgba(224, 242, 254, 0.92) 100%
+  );
+  transition: box-shadow 0.25s ease;
+}
+
+.about-section .about-floating-card .glass-inner.rounded-2xl:hover {
+  transform: none;
+}
+
+.about-section .about-floating-card .glass-inner.rounded-full {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -281,7 +308,8 @@ body {
   }
 
   .about-section .about-floating-card:hover {
-    transform: rotate(var(--card-tilt, 0deg)) translateY(var(--card-y, 0px));
+    transform: rotate(var(--card-tilt, 0deg))
+      translate3d(0, var(--card-y, 0px), 0);
   }
 
   .projects-section .project-folder-visual {
