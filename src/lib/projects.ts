@@ -20,6 +20,9 @@ export type Project = {
   imageHeight?: number;
   gallery?: ProjectGalleryImage[];
   siteUrl?: string;
+  sitePreview?: string;
+  sitePreviewWidth?: number;
+  sitePreviewHeight?: number;
   overview: string;
   solution: string;
   process: string[];
@@ -70,11 +73,11 @@ export const projects: Project[] = [
     solution:
       "Diseñé una interfaz mobile-first con navegación simple, visualización clara de gastos e ingresos y categorías fáciles de entender. Organicé la información por prioridad, añadí feedback visual inmediato y prototipé los flujos principales en Figma para validar que la app fuera intuitiva desde el primer uso.",
     process: [
-      "Research y mapa de journey",
-      "Wireframes de baja fidelidad",
-      "UI kit y prototipo interactivo",
+      "Investigación UX con usuarios",
+      "Definición de flujos de usuario",
+      "Wireframes y prototipado",
+      "Diseño UI en Figma",
       "Pruebas de usabilidad",
-      "Handoff y QA visual",
     ],
   },
   {
@@ -90,16 +93,18 @@ export const projects: Project[] = [
     image: "/proyecto_imprenta.webp",
     imageWidth: 1920,
     imageHeight: 1440,
-    siteUrl: "https://imprentaalatorre.com",
+    sitePreview: "/foto-imprenta.jpg",
+    sitePreviewWidth: 2880,
+    sitePreviewHeight: 18102,
     overview:
       "Rediseño del sitio web de Imprenta Alatorre para presentar con claridad sus servicios de impresión. El enfoque estuvo en organizar la información de forma intuitiva, mejorar la navegación y crear una experiencia visual que reflejara la calidad y profesionalismo de la empresa.",
     solution:
       "Reorganicé el funnel en etapas visibles, añadí resumen persistente del carrito y microcopy orientado a confianza. Diseñé estados de stock, promociones y confirmación con feedback visual consistente.",
     process: [
-      "Auditoría heurística del sitio anterior",
-      "Benchmark de competidores",
-      "Prototipo mobile-first",
-      "Test A/B de checkout",
+      "Investigación del sitio anterior",
+      "Estructura del contenido",
+      "Wireframes y prototipado web",
+      "Diseño UI en Figma",
       "Entrega a desarrollo",
     ],
   },
@@ -122,11 +127,12 @@ export const projects: Project[] = [
     solution:
       "Estructuré la información por niveles: KPIs principales, tendencias y detalle bajo demanda. Definí una paleta funcional para gráficos, filtros globales y patrones de exportación visibles.",
     process: [
-      "Entrevistas con stakeholders",
-      "Card sorting de métricas",
-      "Wireframes del layout principal",
-      "UI de gráficos y filtros",
-      "Documentación de estados y edge cases",
+      "Análisis de necesidades del negocio",
+      "Definición de objetivos del sitio",
+      "Estructura del contenido",
+      "Wireframes y prototipado web",
+      "Diseño UI en Figma",
+      "Desarrollo web",
     ],
   },
 ];

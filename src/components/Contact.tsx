@@ -33,7 +33,7 @@ export function Contact() {
   return (
     <section
       id="contacto"
-      className="contact-section relative overflow-hidden bg-white px-6 pt-8 pb-24 sm:pt-10"
+      className="contact-section relative overflow-hidden bg-white px-6 pt-28 pb-24 sm:pt-32"
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="hero-blob absolute -left-20 top-1/4 h-80 w-80 rounded-full bg-blue-400/40 blur-[100px]" />

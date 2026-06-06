@@ -207,10 +207,12 @@ export function About() {
             </div>
             <p className="min-w-0 flex-1 text-left text-base leading-[1.8] text-zinc-900 sm:text-lg">
               Diseñador UX/UI con formación en ingeniería en desarrollo de
-              software. Especializado en crear experiencias digitales modernas,
-              intuitivas y visualmente atractivas. También cuento con experiencia
-              en marketing digital y creación de contenido, desarrollando
-              proyectos alineados con la identidad y objetivos de las marcas.
+              software. Especializado en el diseño de experiencias digitales
+              centradas en el usuario, creando interfaces intuitivas, funcionales
+              y atractivas, enfocadas en mejorar la usabilidad y experiencia de
+              productos digitales. Cuento además con experiencia en marketing
+              digital y creación de contenido, desarrollando proyectos alineados
+              con la identidad y los objetivos de cada marca.
             </p>
           </div>
         </div>

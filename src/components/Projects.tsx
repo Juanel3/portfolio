@@ -25,7 +25,7 @@ export function Projects() {
   return (
     <section
       id="proyectos"
-      className="projects-section relative overflow-hidden bg-white px-6 py-24"
+      className="projects-section relative overflow-hidden bg-white px-6 pt-24 pb-32 sm:pb-36"
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="hero-blob absolute -left-20 top-1/4 h-80 w-80 rounded-full bg-blue-400/40 blur-[100px]" />
