@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { ScrollFillTitle } from "@/components/ScrollFillTitle";
 
 const email = "juanmf3@outlook.com";
 const linkedin = "https://www.linkedin.com/in/juan-flores-91b77a3b6";
@@ -44,9 +45,9 @@ export function Contact() {
 
       <div className="relative mx-auto max-w-4xl">
         <div className="mb-10 text-center sm:mb-12">
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+          <ScrollFillTitle className="text-2xl font-bold tracking-tight sm:text-3xl">
             Contacto
-          </h2>
+          </ScrollFillTitle>
           <p className="mx-auto mt-4 max-w-xl text-base text-zinc-600 sm:text-lg">
             Trabajemos juntos en tu próximo proyecto.
           </p>

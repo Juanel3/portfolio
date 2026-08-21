@@ -1,25 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
-import { projects, type FolderColor } from "@/lib/projects";
-
-const titleHoverClass = "group-hover:text-sky-700";
-
-function FolderIcon({ color }: { color: FolderColor }) {
-  return (
-    <div className={`folder-icon folder-icon--${color}`} aria-hidden>
-      <div className="folder-shadow" />
-      <div className="folder-back" />
-      <div className="folder-contents">
-        <div className="folder-paper" />
-      </div>
-      <div className="folder-lid">
-        <div className="folder-tab" />
-        <div className="folder-cover">
-          <div className="folder-shine" />
-        </div>
-      </div>
-    </div>
-  );
-}
+import { ScrollFillTitle } from "@/components/ScrollFillTitle";
+import { projects } from "@/lib/projects";
 
 export function Projects() {
   return (
@@ -36,45 +18,48 @@ export function Projects() {
 
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-12 text-center sm:mb-14">
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
-            Proyectos
-          </h2>
+          <ScrollFillTitle className="text-2xl font-bold tracking-tight sm:text-3xl">
+            Del problema a la solución
+          </ScrollFillTitle>
           <p className="mx-auto mt-4 max-w-xl text-base text-zinc-600 sm:text-lg">
-            Una muestra de mi trabajo en diseño UX/UI. Selecciona una carpeta para
-            ver cada proyecto.
+            Una muestra de mi trabajo en diseño UX/UI. Selecciona un proyecto
+            para ver más detalles.
           </p>
         </div>
 
-        <div className="flex flex-wrap items-start justify-center gap-x-12 gap-y-8 sm:gap-x-16 lg:gap-y-14 xl:gap-y-16">
+        <div className="grid gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
           {projects.map((project) => (
             <Link
-              key={project.title}
+              key={project.id}
               href={`/proyectos/${project.slug}`}
-              className={`project-folder project-folder--${project.color} group flex w-[220px] flex-col items-center text-center sm:w-[260px]`}
+              className="project-card group flex h-full no-underline"
             >
-              <div className="project-folder-visual h-36 w-44 sm:h-44 sm:w-52">
-                <FolderIcon color={project.color} />
-              </div>
+              <div className="project-card-window flex h-full w-full flex-col overflow-hidden rounded-[22px] transition-[transform,box-shadow] duration-300 group-hover:-translate-y-1">
+                <div className="bg-[#f5f5f7] p-3 sm:p-3.5">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-white ring-1 ring-zinc-200/60">
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="flex h-full items-center justify-center text-sm text-zinc-400">
+                        Sin imagen
+                      </div>
+                    )}
+                  </div>
+                </div>
 
-              <p
-                className={`mt-5 max-w-[220px] text-base font-semibold leading-snug text-zinc-900 transition-colors sm:text-lg ${titleHoverClass}`}
-              >
-                {project.title}
-              </p>
-
-              <div className="project-folder-panel glass-inner mt-4 hidden w-full translate-y-2 rounded-2xl p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 lg:block sm:p-5">
-                <p className="text-sm leading-relaxed text-zinc-700">
-                  {project.description}
-                </p>
-                <div className="mt-3 flex flex-wrap justify-center gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="glass-inner rounded-full px-2.5 py-1 text-xs font-medium text-zinc-700"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="flex flex-1 flex-col border-t border-zinc-100 px-5 py-4 sm:px-5 sm:py-5">
+                  <h3 className="text-base font-semibold tracking-tight text-zinc-900 transition-colors group-hover:text-sky-600 sm:text-lg">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-600">
+                    {project.shortDescription}
+                  </p>
                 </div>
               </div>
             </Link>

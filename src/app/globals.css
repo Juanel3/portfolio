@@ -8,6 +8,8 @@
   --accent-hover: #1d4ed8;
   --card: #ffffff;
   --border: #e4e4e7;
+  --font-sf-pro: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 @theme inline {
@@ -17,7 +19,7 @@
   --color-accent: var(--accent);
   --color-card: var(--card);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sf-pro);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,10 +38,30 @@ html {
   scroll-behavior: smooth;
 }
 
+.scroll-fill-title {
+  color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    #18181b 0%,
+    #18181b var(--fill, 0%),
+    #d4d4d8 var(--fill, 0%),
+    #d4d4d8 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-fill-title {
+    color: #18181b;
+    background-image: none;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-sf-pro);
 }
 
 .projects-section,
@@ -312,23 +334,14 @@ body {
       translate3d(0, var(--card-y, 0px), 0);
   }
 
-  .projects-section .project-folder-visual {
+  .projects-section .project-card-window {
     transition: none !important;
-  }
-
-  .projects-section .project-folder-panel {
-    transition: none !important;
-    opacity: 1 !important;
     transform: none !important;
   }
 
-  .projects-section .project-folder:hover .folder-lid,
-  .projects-section .project-folder:hover .folder-paper {
+  .projects-section .project-card img {
+    transition: none !important;
     transform: none !important;
-  }
-
-  .projects-section .folder-paper {
-    opacity: 1 !important;
   }
 }
 
@@ -538,159 +551,30 @@ body {
   .project-window {
     border-radius: 22px;
   }
+
+  .projects-section .project-card-window {
+    border-radius: 18px;
+  }
 }
 
-.projects-section .project-folder--sky,
-.projects-section .project-folder--indigo,
-.projects-section .project-folder--cyan {
-  --folder-shadow: rgba(59, 130, 246, 0.28);
-  --folder-shadow-hover: rgba(59, 130, 246, 0.45);
-  --f-back: linear-gradient(165deg, #5db8f5 0%, #2b7bb8 100%);
-  --f-lid: linear-gradient(165deg, #c8e8ff 0%, #5db8f5 45%, #3a9ae3 100%);
-  --f-tab: linear-gradient(180deg, #e4f4ff 0%, #7ec8f8 100%);
-  --f-paper-accent: rgba(59, 130, 246, 0.35);
-}
-
-.projects-section .project-folder-visual {
-  filter: drop-shadow(0 10px 18px var(--folder-shadow));
-  overflow: visible;
-}
-
-.projects-section .folder-icon {
-  position: relative;
-  width: 100%;
+.projects-section .project-card {
+  color: inherit;
   height: 100%;
-  overflow: visible;
-  perspective: 800px;
 }
 
-.projects-section .folder-shadow {
-  position: absolute;
-  bottom: 4%;
-  left: 12%;
-  right: 12%;
-  height: 10%;
-  border-radius: 50%;
-  background: var(--folder-shadow);
-  filter: blur(10px);
-}
-
-.projects-section .folder-back {
-  position: absolute;
-  bottom: 8%;
-  left: 10%;
-  right: 10%;
-  height: 70%;
-  border-radius: 12px 14px 14px 14px;
-  background: var(--f-back);
-  box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.12);
-}
-
-.projects-section .folder-contents {
-  position: absolute;
-  bottom: 22%;
-  left: 22%;
-  right: 22%;
-  height: 44%;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.projects-section .folder-paper {
-  position: absolute;
-  inset: 0;
-  border-radius: 6px;
-  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+.projects-section .project-card-window {
+  height: 100%;
+  border: 1px solid rgba(228, 228, 231, 0.9);
+  background: #ffffff;
   box-shadow:
-    0 4px 12px rgba(15, 23, 42, 0.12),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
-  opacity: 0;
-  transform: translateY(12px);
-  transition:
-    opacity 0.4s ease,
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    0 18px 48px rgba(0, 0, 0, 0.08),
+    0 6px 20px rgba(0, 0, 0, 0.04);
 }
 
-.projects-section .folder-paper::after {
-  content: "";
-  position: absolute;
-  top: 16%;
-  left: 10%;
-  right: 30%;
-  height: 3px;
-  border-radius: 2px;
-  background: var(--f-paper-accent);
-}
-
-.projects-section .folder-paper::before {
-  content: "";
-  position: absolute;
-  top: 28%;
-  left: 10%;
-  right: 45%;
-  height: 3px;
-  border-radius: 2px;
-  background: var(--f-paper-accent);
-  opacity: 0.6;
-}
-
-.projects-section .project-folder:hover .folder-paper {
-  opacity: 1;
-  transform: translateY(-56px);
-  transition-delay: 0.08s;
-}
-
-.projects-section .folder-lid {
-  position: absolute;
-  bottom: 8%;
-  left: 10%;
-  right: 10%;
-  height: 66%;
-  z-index: 4;
-  transform-origin: 50% 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.projects-section .project-folder:hover .folder-lid {
-  transform: rotateX(-52deg);
-}
-
-.projects-section .folder-tab {
-  position: absolute;
-  top: 0;
-  left: 8%;
-  width: 44%;
-  height: 18%;
-  border-radius: 9px 11px 0 0;
-  background: var(--f-tab);
-  transform: translateY(-88%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
-}
-
-.projects-section .folder-cover {
-  position: absolute;
-  inset: 0;
-  border-radius: 12px 14px 18px 18px;
-  background: var(--f-lid);
+.projects-section .project-card:hover .project-card-window {
   box-shadow:
-    inset 0 2px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -3px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.projects-section .folder-shine {
-  position: absolute;
-  top: 10%;
-  left: 8%;
-  right: 22%;
-  height: 24%;
-  border-radius: 8px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(255, 255, 255, 0.08) 100%
-  );
+    0 24px 56px rgba(0, 0, 0, 0.1),
+    0 10px 28px rgba(0, 0, 0, 0.05);
 }
 
 .dock-item:active img {

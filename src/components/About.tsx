@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ScrollFillTitle } from "@/components/ScrollFillTitle";
 
 const software = [
   { name: "Figma", iconUrl: "/software/figma.svg" },
@@ -191,9 +192,9 @@ export function About() {
 
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-8 sm:mb-10">
-          <h2 className="text-center text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+          <ScrollFillTitle className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
             Sobre mí
-          </h2>
+          </ScrollFillTitle>
           <div className="mx-auto mt-8 flex max-w-4xl flex-row items-center gap-5 sm:gap-10">
             <div className="about-floating-photo relative h-24 w-24 shrink-0 sm:h-36 sm:w-36">
               <Image
@@ -206,7 +207,8 @@ export function About() {
               />
             </div>
             <p className="min-w-0 flex-1 text-left text-base leading-[1.8] text-zinc-900 sm:text-lg">
-              Diseñador UX/UI con formación en ingeniería en desarrollo de
+              <strong className="font-semibold text-zinc-900">Diseñador UX/UI</strong>{" "}
+              con formación en ingeniería en desarrollo de
               software. Especializado en el diseño de experiencias digitales
               centradas en el usuario, creando interfaces intuitivas, funcionales
               y atractivas, enfocadas en mejorar la usabilidad y experiencia de
