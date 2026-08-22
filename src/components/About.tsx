@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SectionEntrance } from "@/components/SectionEntrance";
 import { ScrollFillTitle } from "@/components/ScrollFillTitle";
 
 const software = [
@@ -62,18 +63,22 @@ function FloatingInfoBlock({
   title,
   icon,
   children,
+  delay = 0,
 }: {
   cardClass: string;
   title: string;
   icon: React.ReactNode;
   children: React.ReactNode;
+  delay?: number;
 }) {
   return (
-    <div className={`about-floating-card ${cardClass}`}>
-      <InfoBlock title={title} icon={icon}>
-        {children}
-      </InfoBlock>
-    </div>
+    <SectionEntrance delay={delay} className="about-floating-card-wrap">
+      <div className={`about-floating-card ${cardClass}`}>
+        <InfoBlock title={title} icon={icon}>
+          {children}
+        </InfoBlock>
+      </div>
+    </SectionEntrance>
   );
 }
 
@@ -83,6 +88,7 @@ function AboutInfoCards() {
       <FloatingInfoBlock
         title="Software"
         cardClass="about-floating-card--1"
+        delay={280}
         icon={
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <rect x="3" y="5" width="18" height="12" rx="2" />
@@ -113,6 +119,7 @@ function AboutInfoCards() {
       <FloatingInfoBlock
         title="Educación"
         cardClass="about-floating-card--2"
+        delay={380}
         icon={
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <path d="M12 3L2 8l10 5 10-5-10-5z" strokeLinejoin="round" />
@@ -134,6 +141,7 @@ function AboutInfoCards() {
       <FloatingInfoBlock
         title="Habilidades"
         cardClass="about-floating-card--3"
+        delay={480}
         icon={
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" strokeLinejoin="round" />
@@ -155,6 +163,7 @@ function AboutInfoCards() {
       <FloatingInfoBlock
         title="Certificados"
         cardClass="about-floating-card--4"
+        delay={580}
         icon={
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <circle cx="12" cy="9" r="5" />
@@ -192,30 +201,36 @@ export function About() {
 
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-8 sm:mb-10">
-          <ScrollFillTitle className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
-            Sobre mí
-          </ScrollFillTitle>
+          <SectionEntrance>
+            <ScrollFillTitle className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
+              Sobre mí
+            </ScrollFillTitle>
+          </SectionEntrance>
           <div className="mx-auto mt-8 flex max-w-4xl flex-row items-center gap-5 sm:gap-10">
-            <div className="about-floating-photo relative h-24 w-24 shrink-0 sm:h-36 sm:w-36">
-              <Image
-                src="/persona.png"
-                alt="Juan Flores"
-                fill
-                className="object-contain"
-                sizes="(max-width: 640px) 96px, 144px"
-                priority
-              />
-            </div>
-            <p className="min-w-0 flex-1 text-left text-base leading-[1.8] text-zinc-900 sm:text-lg">
-              <strong className="font-semibold text-zinc-900">Diseñador UX/UI</strong>{" "}
-              con formación en ingeniería en desarrollo de
-              software. Especializado en el diseño de experiencias digitales
-              centradas en el usuario, creando interfaces intuitivas, funcionales
-              y atractivas, enfocadas en mejorar la usabilidad y experiencia de
-              productos digitales. Cuento además con experiencia en marketing
-              digital y creación de contenido, desarrollando proyectos alineados
-              con la identidad y los objetivos de cada marca.
-            </p>
+            <SectionEntrance delay={120} className="shrink-0">
+              <div className="about-floating-photo relative h-24 w-24 sm:h-36 sm:w-36">
+                <Image
+                  src="/persona.png"
+                  alt="Juan Flores"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 640px) 96px, 144px"
+                  priority
+                />
+              </div>
+            </SectionEntrance>
+            <SectionEntrance delay={220} className="min-w-0 flex-1">
+              <p className="text-left text-base leading-[1.8] text-zinc-900 sm:text-lg">
+                <strong className="font-semibold text-zinc-900">Diseñador UX/UI</strong>{" "}
+                con formación en ingeniería en desarrollo de
+                software. Especializado en el diseño de experiencias digitales
+                centradas en el usuario, creando interfaces intuitivas, funcionales
+                y atractivas, enfocadas en mejorar la usabilidad y experiencia de
+                productos digitales. Cuento además con experiencia en marketing
+                digital y creación de contenido, desarrollando proyectos alineados
+                con la identidad y los objetivos de cada marca.
+              </p>
+            </SectionEntrance>
           </div>
         </div>
 

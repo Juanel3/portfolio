@@ -201,6 +201,30 @@ body {
   }
 }
 
+@keyframes section-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-enter {
+  opacity: 0;
+}
+
+.section-enter.section-enter-visible {
+  animation: section-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--section-enter-delay, 0ms);
+}
+
+.about-floating-card-wrap {
+  flex: 0 0 auto;
+}
+
 .about-floating-cards {
   display: flex;
   flex-wrap: wrap;
@@ -309,8 +333,11 @@ body {
   .dock-notes-launch img,
   .dock-notes-receive img,
   .about-section .about-floating-card,
-  .about-section .about-floating-photo {
+  .about-section .about-floating-photo,
+  .section-enter {
     animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .dock-enter {
@@ -361,6 +388,7 @@ body {
   position: relative;
   background: transparent;
   border: none;
+  box-shadow: none;
 }
 
 .nav-glass-surface {
@@ -368,13 +396,13 @@ body {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: rgba(252, 252, 253, 0.4);
-  -webkit-backdrop-filter: blur(28px) saturate(160%);
-  backdrop-filter: blur(28px) saturate(160%);
+  background: rgba(224, 242, 254, 0.6);
+  border: none;
+  -webkit-backdrop-filter: blur(64px) saturate(200%);
+  backdrop-filter: blur(64px) saturate(200%);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.085),
-    inset 0 1px 0 rgba(255, 255, 255, 0.58),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+    0 10px 40px rgba(0, 0, 0, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.14);
   pointer-events: none;
 }
 
@@ -387,7 +415,7 @@ body {
   (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))
 ) {
   .nav-glass-surface {
-    background: rgba(252, 252, 253, 0.92);
+    background: rgba(224, 242, 254, 0.94);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
@@ -395,8 +423,8 @@ body {
 
 .nav-mobile-menu .nav-glass-surface {
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    0 16px 48px rgba(0, 0, 0, 0.24),
+    0 6px 16px rgba(0, 0, 0, 0.16);
 }
 
 .nav-mobile-menu {

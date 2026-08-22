@@ -34,7 +34,7 @@ export function ScrollFillTitle({
     const update = () => {
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight || 1;
-      const start = vh * 1.2;
+      const start = vh * 1.65;
       const end = vh * -0.35;
       const next = (start - rect.top) / (start - end);
       setProgress(Math.min(1, Math.max(0, next)));

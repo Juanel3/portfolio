@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ScrollFillTitle } from "@/components/ScrollFillTitle";
+import { SectionEntrance } from "@/components/SectionEntrance";
 
 const email = "juanmf3@outlook.com";
 const linkedin = "https://www.linkedin.com/in/juan-flores-91b77a3b6";
@@ -45,14 +46,19 @@ export function Contact() {
 
       <div className="relative mx-auto max-w-4xl">
         <div className="mb-10 text-center sm:mb-12">
-          <ScrollFillTitle className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Contacto
-          </ScrollFillTitle>
-          <p className="mx-auto mt-4 max-w-xl text-base text-zinc-600 sm:text-lg">
-            Trabajemos juntos en tu próximo proyecto.
-          </p>
+          <SectionEntrance>
+            <ScrollFillTitle className="text-2xl font-bold tracking-tight sm:text-3xl">
+              Contacto
+            </ScrollFillTitle>
+          </SectionEntrance>
+          <SectionEntrance delay={120}>
+            <p className="mx-auto mt-4 max-w-xl text-base text-zinc-600 sm:text-lg">
+              Trabajemos juntos en tu próximo proyecto.
+            </p>
+          </SectionEntrance>
         </div>
 
+        <SectionEntrance delay={240}>
         <div className="contact-window overflow-hidden rounded-[28px] border border-white/90 bg-white/80 font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] shadow-[0_24px_64px_rgba(0,0,0,0.08),0_8px_32px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] backdrop-blur-xl">
           <div className="flex min-h-[420px] flex-col sm:min-h-[460px] sm:flex-row">
             <aside className="contact-info-bar flex shrink-0 flex-col sm:w-[260px] lg:w-[280px]">
@@ -169,6 +175,7 @@ export function Contact() {
             </form>
           </div>
         </div>
+        </SectionEntrance>
       </div>
     </section>
   );

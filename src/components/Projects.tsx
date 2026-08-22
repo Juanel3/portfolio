@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollFillTitle } from "@/components/ScrollFillTitle";
+import { SectionEntrance } from "@/components/SectionEntrance";
 import { projects } from "@/lib/projects";
 
 export function Projects() {
@@ -18,25 +19,33 @@ export function Projects() {
 
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-12 text-center sm:mb-14">
-          <ScrollFillTitle className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Del problema a la solución
-          </ScrollFillTitle>
-          <p className="mx-auto mt-4 max-w-xl text-base text-zinc-600 sm:text-lg">
-            Una muestra de mi trabajo en diseño UX/UI. Selecciona un proyecto
-            para ver más detalles.
-          </p>
+          <SectionEntrance>
+            <ScrollFillTitle className="text-2xl font-bold tracking-tight sm:text-3xl">
+              Del problema a la solución
+            </ScrollFillTitle>
+          </SectionEntrance>
+          <SectionEntrance delay={120}>
+            <p className="mx-auto mt-4 max-w-xl text-base text-zinc-600 sm:text-lg">
+              Una muestra de mi trabajo en diseño UX/UI. Selecciona un proyecto
+              para ver más detalles.
+            </p>
+          </SectionEntrance>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
-          {projects.map((project) => (
-            <Link
+          {projects.map((project, index) => (
+            <SectionEntrance
               key={project.id}
-              href={`/proyectos/${project.slug}`}
-              className="project-card group flex h-full no-underline"
+              delay={260 + index * 100}
+              className="h-full"
             >
+              <Link
+                href={`/proyectos/${project.slug}`}
+                className="project-card group flex h-full no-underline"
+              >
               <div className="project-card-window flex h-full w-full flex-col overflow-hidden rounded-[22px] transition-[transform,box-shadow] duration-300 group-hover:-translate-y-1">
-                <div className="bg-[#f5f5f7] p-3 sm:p-3.5">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-white ring-1 ring-zinc-200/60">
+                <div className="p-3 sm:p-3.5">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-white">
                     {project.image ? (
                       <Image
                         src={project.image}
@@ -53,7 +62,7 @@ export function Projects() {
                   </div>
                 </div>
 
-                <div className="flex flex-1 flex-col border-t border-zinc-100 px-5 py-4 sm:px-5 sm:py-5">
+                <div className="flex flex-1 flex-col px-5 py-4 sm:px-5 sm:py-5">
                   <h3 className="text-base font-semibold tracking-tight text-zinc-900 transition-colors group-hover:text-sky-600 sm:text-lg">
                     {project.title}
                   </h3>
@@ -63,6 +72,7 @@ export function Projects() {
                 </div>
               </div>
             </Link>
+            </SectionEntrance>
           ))}
         </div>
       </div>

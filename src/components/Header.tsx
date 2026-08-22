@@ -45,7 +45,7 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-1.5 text-sm text-zinc-600 transition-colors hover:bg-white/50 hover:text-zinc-900 md:px-4 md:py-2"
+              className="rounded-full px-3 py-1.5 text-sm text-zinc-900 transition-colors hover:bg-white/50 hover:text-black md:px-4 md:py-2"
             >
               {link.label}
             </a>
@@ -56,7 +56,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
-            className="nav-glass relative flex h-11 w-full items-center justify-end overflow-hidden rounded-full px-4 text-zinc-700 transition-colors hover:text-zinc-900"
+            className="nav-glass relative flex h-11 w-full items-center justify-end overflow-hidden rounded-full px-4 text-zinc-900 transition-colors hover:text-black"
             aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
@@ -100,7 +100,7 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="block rounded-xl px-4 py-3 text-center text-sm text-zinc-600 transition-colors hover:bg-white/50 hover:text-zinc-900"
+                    className="block rounded-xl px-4 py-3 text-center text-sm text-zinc-900 transition-colors hover:bg-white/50 hover:text-black"
                   >
                     {link.label}
                   </a>
