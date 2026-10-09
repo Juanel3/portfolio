@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ProjectPageScroll } from "@/components/ProjectPageScroll";
 import { ProjectView } from "@/components/ProjectView";
 import {
   getAllProjectSlugs,
@@ -41,12 +42,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <>
+    <div className="project-page-enter">
+      <ProjectPageScroll />
       <Header />
       <main>
         <ProjectView project={project} />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

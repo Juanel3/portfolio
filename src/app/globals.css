@@ -38,6 +38,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html:has(.project-page-enter) {
+  scroll-behavior: auto;
+}
+
 .scroll-fill-title {
   color: transparent;
   background-image: linear-gradient(
@@ -221,6 +225,21 @@ body {
   animation-delay: var(--section-enter-delay, 0ms);
 }
 
+@keyframes project-page-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-page-enter {
+  animation: project-page-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .about-floating-card-wrap {
   flex: 0 0 auto;
 }
@@ -345,7 +364,8 @@ body {
   .dock-notes-receive img,
   .about-section .about-floating-card,
   .about-section .about-floating-photo,
-  .section-enter {
+  .section-enter,
+  .project-page-enter {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
