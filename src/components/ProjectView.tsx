@@ -40,7 +40,7 @@ function ProcessSection({ section }: { section: CaseStudySection }) {
             <p key={paragraph}>{paragraph}</p>
           ))}
           {section.quote ? (
-            <blockquote className="process-quote text-sky-600">{section.quote}</blockquote>
+            <blockquote className="process-quote text-sky-500">{section.quote}</blockquote>
           ) : null}
           {section.itemsIntro ? <p>{section.itemsIntro}</p> : null}
           {section.items && section.items.length > 0 ? (
@@ -101,7 +101,7 @@ function CaseStudyLayout({ project }: { project: Project }) {
     <div className="space-y-4 sm:space-y-5">
       <article className="case-hero">
         <div className="case-hero-copy">
-          <p className="text-xs font-semibold uppercase tracking-wider text-sky-600">
+          <p className="text-xs font-semibold uppercase tracking-wider text-sky-500">
             Caso de estudio
           </p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-[2.5rem] sm:leading-tight">
@@ -148,7 +148,7 @@ function CaseStudyLayout({ project }: { project: Project }) {
         ) : null}
       </article>
 
-      <h2 className="pt-2 text-xs font-semibold uppercase tracking-wider text-sky-600">
+      <h2 className="pt-2 text-xs font-semibold uppercase tracking-wider text-sky-500">
         Proceso
       </h2>
 
@@ -181,7 +181,7 @@ export function ProjectView({ project }: { project: Project }) {
       <div className="relative mx-auto max-w-5xl">
         <Link
           href="/#proyectos"
-          className="project-back-link mb-6 inline-flex items-center gap-2 text-sm font-medium text-sky-600 transition-colors hover:text-sky-700"
+          className="project-back-link mb-6 inline-flex items-center gap-2 text-sm font-medium text-sky-500 transition-colors hover:text-sky-600"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
@@ -227,7 +227,7 @@ export function ProjectView({ project }: { project: Project }) {
                 </div>
 
                 <div className="mt-8 border-t border-zinc-200/70 pt-8">
-                  <h2 className="text-xs font-semibold uppercase tracking-wider text-sky-600">
+                  <h2 className="text-xs font-semibold uppercase tracking-wider text-sky-500">
                     Resumen
                   </h2>
                   <p className="mt-3 text-base leading-relaxed text-zinc-700">
@@ -236,7 +236,7 @@ export function ProjectView({ project }: { project: Project }) {
                 </div>
 
                 <div className="mt-8 border-t border-zinc-200/70 pt-8">
-                  <h2 className="text-xs font-semibold uppercase tracking-wider text-sky-600">
+                  <h2 className="text-xs font-semibold uppercase tracking-wider text-sky-500">
                     Proceso
                   </h2>
                   <ol className="mt-4 space-y-3">

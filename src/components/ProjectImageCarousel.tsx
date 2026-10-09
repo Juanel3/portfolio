@@ -76,7 +76,7 @@ function CarouselButton({
       }}
       disabled={disabled}
       aria-label={direction === "prev" ? "Foto anterior" : "Foto siguiente"}
-      className="project-carousel-btn flex h-7 w-7 items-center justify-center rounded-full border border-zinc-200/90 bg-white/95 text-zinc-600 shadow-md transition hover:border-sky-600/30 hover:text-sky-600 disabled:cursor-not-allowed disabled:opacity-35"
+      className="project-carousel-btn flex h-7 w-7 items-center justify-center rounded-full border border-zinc-200/90 bg-white/95 text-zinc-600 shadow-md transition hover:border-sky-500/30 hover:text-sky-500 disabled:cursor-not-allowed disabled:opacity-35"
     >
       <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
         {direction === "prev" ? (
@@ -192,7 +192,7 @@ export function ProjectImageCarousel({
             aria-current={selectedIndex === index ? "true" : undefined}
             className={`h-1 rounded-full transition-all ${
               selectedIndex === index
-                ? "w-4 bg-sky-600"
+                ? "w-4 bg-sky-500"
                 : "w-1 bg-zinc-300 hover:bg-zinc-400"
             }`}
           />

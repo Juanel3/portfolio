@@ -67,7 +67,7 @@ export function Projects() {
                 </div>
 
                 <div className="flex flex-1 flex-col px-5 py-4 sm:px-5 sm:py-5">
-                  <h3 className="text-base font-semibold tracking-tight text-zinc-900 transition-colors group-hover:text-sky-600 sm:text-lg">
+                  <h3 className="text-base font-semibold tracking-tight text-zinc-900 transition-colors group-hover:text-sky-500 sm:text-lg">
                     {project.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-zinc-600">

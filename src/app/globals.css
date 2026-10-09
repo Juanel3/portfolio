@@ -557,13 +557,13 @@ body {
 }
 
 .project-tag {
-  background: rgba(2, 132, 199, 0.1);
-  color: #0284c7;
+  background: rgba(14, 165, 233, 0.12);
+  color: #0ea5e9;
 }
 
 .project-process-num {
-  background: rgba(2, 132, 199, 0.12);
-  color: #0284c7;
+  background: rgba(14, 165, 233, 0.14);
+  color: #0ea5e9;
 }
 
 .case-hero {
@@ -646,7 +646,7 @@ body {
 }
 
 .process-step-dot {
-  background: #0284c7;
+  background: #0ea5e9;
 }
 
 .process-quote {
@@ -654,7 +654,7 @@ body {
   padding: 0;
   border: none;
   background: none;
-  color: #0284c7;
+  color: #0ea5e9;
   font-style: normal;
   font-weight: 500;
 }
@@ -671,7 +671,7 @@ body {
 }
 
 .process-list li::marker {
-  color: #0284c7;
+  color: #0ea5e9;
 }
 
 .process-step--result {

@@ -47,8 +47,8 @@ function InfoBlock({
 }) {
   return (
     <div className={`glass-inner rounded-2xl p-4 sm:p-5 ${className}`}>
-      <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-600">
-        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-sky-100/80 text-sky-600 [&_svg]:h-3.5 [&_svg]:w-3.5">
+      <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-500">
+        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-sky-100/80 text-sky-500 [&_svg]:h-3.5 [&_svg]:w-3.5">
           {icon}
         </span>
         {title}
