@@ -91,7 +91,7 @@ export const projects: Project[] = [
     process: [
       "Investigación",
       "Definición del problema",
-      "Arquitectura y flujo",
+      "Arquitectura",
       "Wireframes",
       "Diseño UI",
       "Prototipado y evaluación",
@@ -122,7 +122,7 @@ export const projects: Project[] = [
         },
         {
           number: "3",
-          title: "Arquitectura y flujo",
+          title: "Arquitectura",
           paragraphs: [
             "Se definió la estructura de la aplicación y los principales flujos que permitirían al usuario realizar sus tareas de manera rápida.",
           ],
@@ -238,7 +238,7 @@ export const projects: Project[] = [
     process: [
       "Investigación",
       "Definición del problema",
-      "Arquitectura y flujo",
+      "Arquitectura",
       "Wireframes",
       "Diseño UI",
       "Prototipado y evaluación",
@@ -269,7 +269,7 @@ export const projects: Project[] = [
         },
         {
           number: "3",
-          title: "Arquitectura y flujo",
+          title: "Arquitectura",
           paragraphs: [
             "Se definió la estructura del sitio y los principales flujos que permitirían al usuario conocer la agencia, revisar sus servicios y contactar de manera rápida.",
           ],
