@@ -20,7 +20,11 @@ export function Projects() {
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-12 text-center sm:mb-14">
           <SectionEntrance>
-            <ScrollFillTitle className="text-2xl font-bold tracking-tight sm:text-3xl">
+            <ScrollFillTitle
+              className="text-2xl font-bold tracking-tight sm:text-3xl"
+              mobileStart={2.15}
+              mobileEnd={-0.1}
+            >
               Del problema a la solución
             </ScrollFillTitle>
           </SectionEntrance>

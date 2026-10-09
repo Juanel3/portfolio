@@ -192,7 +192,7 @@ export function About() {
       id="sobre-mi"
       className="about-section relative overflow-hidden bg-white px-6 py-24"
     >
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div className="about-blobs pointer-events-none absolute inset-0 overflow-hidden">
         <div className="hero-blob absolute -left-20 top-1/4 h-80 w-80 rounded-full bg-blue-400/40 blur-[100px]" />
         <div className="hero-blob hero-blob-2 absolute -right-16 top-1/3 h-72 w-72 rounded-full bg-sky-300/45 blur-[90px]" />
         <div className="hero-blob hero-blob-3 absolute bottom-1/4 left-1/3 h-64 w-64 rounded-full bg-indigo-300/35 blur-[100px]" />
